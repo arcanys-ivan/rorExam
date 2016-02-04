@@ -4,8 +4,8 @@ Create a simple Rails Blog Application.
 
 Requirements:
   -- User can login
-  -- User can CRUD a Post [id, title, content, timestamps]
-  -- List Posts in Home Page
+  -- User can CRUD a Post [id, title, content, is_private timestamps]
+  -- List Posts in Home Page (if post is public)
   -- User can view a post from the other users
   -- User can Comment to a POST from the other user [id, comment, post_id, user_id]  (AJAX Optional / Plus points)
   -- Create an API for the Comment posting if you are using ajax on posting (plus points) (its going to be one controller, just use session)
