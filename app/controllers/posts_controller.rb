@@ -13,6 +13,15 @@ class PostsController < ApplicationController
   	@post = Post.find params[:id]
   end
 
+  def update
+  	post = Post.find params[:id]
+  	if post.update_attributes post_params
+  	  redirect_to posts_path
+  	else
+  	  redirect_to :back
+  	end
+  end
+
   private
 
   def post_params
