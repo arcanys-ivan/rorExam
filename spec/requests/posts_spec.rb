@@ -34,8 +34,8 @@ RSpec.describe "Posts", type: :request do
   	  click_link 'Edit'
 
   	  current_path.should == edit_post_path(@post)
-  	  find_field('post_title').value.should 'Test Title'
-  	  find_field('post_content').value.should 'Some Post'
+  	  find_field('post_title').value.should == 'Test Title'
+  	  find_field('post_content').value.should == 'Some Post'
 
       fill_in 'post_title', :with => 'updated title'
       fill_in 'post_content', :with => 'updated content'
