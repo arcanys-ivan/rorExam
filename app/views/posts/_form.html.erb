@@ -1,0 +1,9 @@
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.label :is_private %>
+  <%= f.check_box :is_private %>
+  <%= f.submit %>
+<% end %>
