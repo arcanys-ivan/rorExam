@@ -45,9 +45,15 @@ RSpec.describe "Posts", type: :request do
       current_path.should == posts_path
       page.should have_content 'updated title'
   	  page.should have_content 'updated content'
-
   	end
+  end
 
+  describe "DELETE /posts" do
+  	it "deletes a post" do
+  	  visit posts_path
+  	  find()
+  	  click_link "Delete"
+  	end
   end
 
 end
