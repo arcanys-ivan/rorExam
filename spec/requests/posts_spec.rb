@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :request do
   describe "GET /posts" do
-    it "works! (now write some real specs)" do
-      get posts_index_path
-      expect(response).to have_http_status(200)
-    end
+    it "should display some posts" do
+    	visit posts_path
+    	page.should have_content 'sample post'
+   	end
   end
 end
