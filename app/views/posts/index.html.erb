@@ -3,7 +3,7 @@
 
 <ul>
   <% for post in @posts %>
-  <li>
+  <li id="post_<%= post.id %>">
   	<%= "Title: #{post.title}" %> 
   	</br>
   	<%= "Content: #{post.content}" %> 
