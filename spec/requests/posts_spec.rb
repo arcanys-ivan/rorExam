@@ -52,6 +52,8 @@ RSpec.describe "Posts", type: :request do
   	it "deletes a post" do
   	  visit posts_path
   	  find("#post_#{@post.id}").click_link "Delete"
+
+  	  current_path.should == posts_path
   	  page.should_not have_content "Test Title"
   	  page.should_not have_content "Some Post"
   	end
