@@ -1,0 +1,60 @@
+<div class="well">
+	<% if current_user.id == @post.user_id %>
+		<%= link_to 'Edit', edit_post_path(@post) %> , <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+  <h3><%= @post.title.humanize %></h3>
+  <p><%= @post.content %></p>
+
+  <div>By: <%= @post.user.name%></div>
+  <h4>Comments</h4>
+  <div class="comments">
+  	<% if !@comments.nil? %>
+  		<% @comments.each do |comment| %>
+  			<div class="comment_list">
+					<p><strong><%= comment.user.name %> : </strong><%= comment.message%> - <span class="date_"><%= time_ago_in_words(comment.created_at)%> ago</span></p>
+				</div>
+  		<% end %>
+  	<% end %>
+  </div>
+  <div class="">
+    <div ><textarea class="form-control" rows="2" id='comment_message'></textarea></div>
+  </div>
+	<button class="btn btn-primary" id='comment-btn' style="margin-top:10px;">Comment</button> <img src="/assets/loading.gif" style="width: 25px;margin-top: 10px;" class="loading hide">
+</div>
+
+<script type="text/javascript">
+	$('#comment-btn').click(function(){
+		var post_id = <%= @post.id %>;
+		var user_id = <%= current_user.id %>;
+		var message = $('#comment_message').val();
+		$('.loading').removeClass('hide');
+		 $.ajax({
+        url:  "/api/v1/comments",
+        dataType: "json",
+        method: "POST",
+        data: {
+           comment : { post_id : post_id,message: message, user_id: user_id }
+        },
+        success: function(data) { 
+        	var p = $('<p><strong>'+data.user.name+' :</strong> '+data.message+' - <span class="date_">'+data.time_ago+' ago</span></p>');
+           $('._comment').find('.comment_list').clone().append(p).appendTo($('.comments'));
+           $('#comment_message').val('') ;
+           $('.loading').addClass('hide');
+        }
+    	});
+	});
+</script>
+
+
+<div class="_comment hide">
+	<div class="comment_list">
+	</div>
+</div>
+
+<style type="text/css">
+	.date_{
+		font-size: 75%;
+    color: burlywood;
+    font-style: italic;
+	}
+</style>

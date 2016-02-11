@@ -15,4 +15,4 @@ Tech Requirements:
   -- Authentication (use any gems like sorcery or devise)
   -- Rails Bootstrap
   -- MySQL 
-  -- Create a Feature Branch (feature/ror-michael) and push your changes to that branch
+  -- Create a Feature Branch (feature/ror-micco) and push your changes to that branch

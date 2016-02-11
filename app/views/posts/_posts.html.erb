@@ -1,0 +1,12 @@
+
+
+
+<% @posts.each do |post| %>
+<div class="well">
+  <div class="page-header">
+  <h1><%= post.title.humanize %><small> By: <%= post.user.name%></small></h1>
+  </div>
+  <p><%=h truncate(post.content, :length => 100) %>...  <a href="/posts/<%= post.id %>">Read more</a></p>
+  <div><%= Comment.where(post_id: post.id).count %> comments</div>
+</div>
+<% end %>
