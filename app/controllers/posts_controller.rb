@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.is_public
+    @posts = Post.all.is_public.order('created_at DESC')
 
   end
 

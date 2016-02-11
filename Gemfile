@@ -54,3 +54,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-generators', git: 'git://github.com/decioferreira/bootstrap-generators.git'
 
 gem 'pry'
+
+gem 'active_model_serializers'
